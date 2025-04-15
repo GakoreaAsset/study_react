@@ -1,9 +1,23 @@
+// 기본 선언
 import { BrowserRouter, Routes, Route, Link, useParams } from 'react-router-dom';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 import './App.css';
+
+// 페이지 이동 임포트
 import Main from './pages/main/Mainain';
 
+// usestate const선언
+const [name, setName] = useState("초기값");
+
+const btnclick = () => {
+  setName("버튼클릭");
+  // console.log(name);
+}
+
+useEffect(() => {
+  console.log(name);
+}, [name]);
 
 function App() {
   return (
