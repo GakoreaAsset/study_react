@@ -1,3 +1,8 @@
+```
+  npm i react-router-dom       // 컴포넌트 변환용
+  npm i axios                  // 엑시오스 = ajax
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
