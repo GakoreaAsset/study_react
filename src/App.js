@@ -5,21 +5,26 @@ import {useState, useEffect} from 'react';
 import './App.css';
 
 // 페이지 이동 임포트
-import Main from './pages/main/Mainain';
+import Main from './pages/main/Main';
+
+function App() {
 
 // usestate const선언
 const [name, setName] = useState("초기값");
 
 const btnclick = () => {
   setName("버튼클릭");
-  // console.log(name);
+}
+
+const btncheck = () => {
+  alert(name);
 }
 
 useEffect(() => {
   console.log(name);
 }, [name]);
 
-function App() {
+
   return (
     <>
       <BrowserRouter>
@@ -31,12 +36,17 @@ function App() {
           <Link to="/about" >About</Link>
         </span>&nbsp;&nbsp;
         <span>
-          <Link to='/user' >User</Link>
+          <Link to='/main' >Main</Link>
         </span>
         <span>&nbsp;&nbsp;
           <Link to="/topics" >Topics</Link>
         </span>
       </nav>
+
+      <bd>
+        <button onClick={btnclick}>버튼클릭</button>
+        <button onClick={btncheck}>name값 얼럿출력</button>
+      </bd>
 
       <Routes>
         <Route path='/' element={<Home/>}></Route>
@@ -49,6 +59,7 @@ function App() {
     </>
   );
 }
+export default App;
 
 function Home() {
   return (
@@ -88,13 +99,16 @@ function News() {
   let { id } = useParams();
   const [pid, setPid] = useState(id);
 
+  const idbtnck = () => {
+    setPid("변경된PROMP")
+  }
+
   return (
     <div>
       <h1>News</h1>
       <p>ip : {pid}</p>
+
+      <button onClick={idbtnck}>id변경</button>
     </div>
   );
 }
-
-
-export default App;
